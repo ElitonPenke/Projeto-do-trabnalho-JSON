@@ -36,10 +36,10 @@ class Agenda:
         #uma variavel local para armazenar tudo de uma vez o que vai ser armazenado
         novo = {
             'id': id,
-            'nome': nome,
+            'nome': nome.title(),  #aqui ele ja deixa o nome com a primeira letra maiuscula
             'telefone': telefone,
-            'email': email,
-            'endereco': endereco,
+            'email': email.lower(),
+            'endereco': endereco.title(),
             'aniversario': aniversario
         }
         
@@ -63,14 +63,18 @@ class Agenda:
             print("=========================================")
 
     def atualizar_contato(self):
-        id = int(input("Me diga o 'ID' do contato que você quer atualizar: "))
-        dado_atualizado = input("O que você quer atualizar? (nome, telefone, email, endereco, aniversario): ").lower()
-        novo_valor = input(f"Qual o novo valor para {dado_atualizado}? ")
-        for contato in self.contatos:
-               contato[dado_atualizado] = novo_valor
-               salvar_contatos(self.contatos)  # ai ele chama a def para salvar a variavel em py para dentro do arquivo JSON
-        print(f"\nContato com ID {id} atualizado com sucesso!\n")
-               
+        id_escolhido = int(input("Me diga o 'ID' do contato que você quer atualizar: "))
+        for contato in self.contatos: 
+            if id_escolhido == contato['id']:
+                dado_atualizado = input("O que você quer atualizar? (nome, telefone, email, endereco, aniversario): ").lower()
+                novo_valor = input(f"Qual o novo valor para {dado_atualizado}? ")
+                for contato in self.contatos:
+                    contato[dado_atualizado] = novo_valor
+                    salvar_contatos(self.contatos)  # ai ele chama a def para salvar a variavel em py para dentro do arquivo JSON
+                print(f"\nContato com ID {id_escolhido} atualizado com sucesso!\n")
+        else:
+            print(f"\nContato com ID {id_escolhido} não encontrado.\n")
+            return               
 
     def deletar_contato(self):
         escolha_deletar = int(input("Me diga o 'ID' do contato que você quer deletar: "))
@@ -107,4 +111,4 @@ while True:
         
         
         
-        
+#testes de commit        
