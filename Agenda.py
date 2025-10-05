@@ -36,12 +36,14 @@ class Agenda:
         #uma variavel local para armazenar tudo de uma vez o que vai ser armazenado
         novo = {
             'id': id,
-            'nome': nome.title(),
+            'nome': nome,
             'telefone': telefone,
-            'email': email.lower(),
+            'email': email,
             'endereco': endereco,
             'aniversario': aniversario
         }
+        
+        
         #aqui ele vai adicionar a varivel (novo) a lista (contatos)
         self.contatos.append(novo)
 
