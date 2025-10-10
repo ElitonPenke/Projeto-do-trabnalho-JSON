@@ -31,8 +31,8 @@ class Agenda:
         email = input('EMAIL: ')
         endereco = input('ENDEREÇO: ')
         aniversario = input('ANIVERSÁRIO: ')
-        id = len(self.contatos) + 1  #aqui é toda vez é criado uym novo id com base nos contatos ja salvos
-        #mudar para colocar o max de um id denro do conatos
+        id = max([contato['id'] for contato in self.contatos], default=0) + 1  # usa default=0 para evitar erro se lista estiver vazia
+       
         #uma variavel local para armazenar tudo de uma vez o que vai ser armazenado
         novo = {
             'id': id,
