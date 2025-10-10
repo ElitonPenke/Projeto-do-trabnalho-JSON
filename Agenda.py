@@ -123,7 +123,4 @@ while True:
         case 6:
             print('SAINDO DO PROGRAMA...')
             break
-        
-        
-        
-#testes de commit        
+   
