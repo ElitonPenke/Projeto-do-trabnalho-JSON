@@ -32,7 +32,7 @@ class Agenda:
         endereco = input('ENDEREÇO: ')
         aniversario = input('ANIVERSÁRIO: ')
         id = len(self.contatos) + 1  #aqui é toda vez é criado uym novo id com base nos contatos ja salvos
-        
+        #mudar para colocar o max de um id denro do conatos
         #uma variavel local para armazenar tudo de uma vez o que vai ser armazenado
         novo = {
             'id': id,
